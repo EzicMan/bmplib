@@ -15,14 +15,9 @@ int main()
 	srand(time(NULL));
 	for (int i = 0; i < y; i++) {
 		for (int j = 0; j < x * 4; j+=4) {
-			myImage.setPixel(j, i, Color(rand() % 256, rand() % 256, rand() % 256));
+			myImage.setPixel(j, i, Color());
 		}
 	}
-	ofstream out("test.bmp");
-	byteArray sourceFile = myImage.fullFile();
-	for (int i = 0; i < sourceFile.size; i++) {
-		out << sourceFile.bytes[i];
-	}
-	out.close();
+	myImage.saveToFile("test.bmp");
 	return 0;
 }

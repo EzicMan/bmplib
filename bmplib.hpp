@@ -1,5 +1,7 @@
 #pragma once
 #include <cstring>
+#include <iostream>
+#include <fstream>
 
 class byteArray {
 public:
@@ -164,5 +166,13 @@ public:
 		pixelBuf.bytes[y * w * 4 + x + 1] = c.green;
 		pixelBuf.bytes[y * w * 4 + x] = c.blue;
 		pixelBuf.bytes[y * w * 4 + x + 3] = 0;
+	}
+	inline void saveToFile(const char* filename) {
+		std::ofstream out(filename);
+		byteArray sourceFile = fullFile();
+		for (int i = 0; i < sourceFile.size; i++) {
+			out << sourceFile.bytes[i];
+		}
+		out.close();
 	}
 };
