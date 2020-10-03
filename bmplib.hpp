@@ -162,10 +162,10 @@ public:
 		return ans;
 	}
 	inline void setPixel(int x, int y, Color c) {
-		pixelBuf.bytes[y * w * 4 + x + 2] = c.red;
-		pixelBuf.bytes[y * w * 4 + x + 1] = c.green;
-		pixelBuf.bytes[y * w * 4 + x] = c.blue;
-		pixelBuf.bytes[y * w * 4 + x + 3] = 0;
+		pixelBuf.bytes[y * w * 4 + x * 4 + 2] = c.red;
+		pixelBuf.bytes[y * w * 4 + x * 4 + 1] = c.green;
+		pixelBuf.bytes[y * w * 4 + x * 4] = c.blue;
+		pixelBuf.bytes[y * w * 4 + x * 4 + 3] = 0;
 	}
 	inline void saveToFile(const char* filename) {
 		std::ofstream out(filename);

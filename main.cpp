@@ -14,8 +14,8 @@ int main()
 	bitMapImage myImage(x,y);
 	srand(time(NULL));
 	for (int i = 0; i < y; i++) {
-		for (int j = 0; j < x * 4; j+=4) {
-			myImage.setPixel(j, i, Color());
+		for (int j = 0; j < x; j++) {
+			myImage.setPixel(j, i, Color(rand() % 256, rand() % 256, rand() % 256));
 		}
 	}
 	myImage.saveToFile("test.bmp");
