@@ -162,13 +162,16 @@ public:
 		return ans;
 	}
 	inline void setPixel(int x, int y, Color c) {
+		if (x >= w || y >= h) {
+			throw std::invalid_argument("Can't set this pixel");
+		}
 		pixelBuf.bytes[y * w * 4 + x * 4 + 2] = c.red;
 		pixelBuf.bytes[y * w * 4 + x * 4 + 1] = c.green;
 		pixelBuf.bytes[y * w * 4 + x * 4] = c.blue;
 		pixelBuf.bytes[y * w * 4 + x * 4 + 3] = 0;
 	}
 	inline void saveToFile(const char* filename) {
-		std::ofstream out(filename);
+		std::ofstream out(filename, std::ios::out | std::ios::binary);
 		byteArray sourceFile = fullFile();
 		for (int i = 0; i < sourceFile.size; i++) {
 			out << sourceFile.bytes[i];
