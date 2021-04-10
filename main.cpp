@@ -17,7 +17,7 @@ int main()
 		colors[0 + i] = Color(i & 1 ? 128 : 0, i & 2 ? 128 : 0, i & 4 ? 128 : 0);
 		colors[8 + i] = Color(i & 1 ? 255 : 0, i & 2 ? 255 : 0, i & 4 ? 255 : 0);
 	}*/
-	bitMapImage<4294967295> myImage(x,y);
+	bitMapImage<24> myImage(x,y);
 	/*srand(time(NULL));
 	int t = 0;
 	for (int i = 0; i < 16; i++) {
@@ -32,7 +32,7 @@ int main()
 	}*/
 	for (int i = 0; i < y; i++) {
 		for (int j = 0; j < x; j++) {
-			myImage.setPixel(j, i, rand()%16);
+			myImage.setPixel(j, i, Color(0,0,255));
 		}
 	}
 	myImage.saveToFile("test.bmp");
