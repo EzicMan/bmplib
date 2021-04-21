@@ -1,6 +1,7 @@
 #pragma once
 #include <cstring>
 #include <iostream>
+#include <cmath>
 #include <fstream>
 #include <cassert>
 
@@ -151,7 +152,7 @@ public:
 		this->pixelBuf.bytes = new char[this->pixelBuf.size]();
 		iLoveColorTable(colors, size);
 	}
-	void setPixel([[maybe_unused]] int x, [[maybe_unused]] int y, [[maybe_unused]] int colorIndex);
+	[[maybe_unused]] void setPixel(int x, int y, int colorIndex);
     [[maybe_unused]] void setPixel(int x, int y, Color c);
 	void saveToFile([[maybe_unused]] const char* filename);
 private:
